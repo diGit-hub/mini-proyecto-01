@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+    --color-background: #0a0f22;
+    --color-text-light: #f0f4f4;
+    --color-text-dark: #151a00;
+    --color-highlight: #ddef8c;
+    --color-ghost-bg: #151d32;
+    --color-deep-blue: #1E293B;
+    --color-card: #1e2337;
+    --color-gradient-bottom: #284c93;
+    --color-foreground: #1d2236;
+    --color-contact-card: #ffffff;
+    --color-contact-input: #e3e3e3;
+    --color-contact-text: #0c0d21;
+    --color-purple-ball: #362d70;
+    --color-blue-ball: #798cc9;
+    --color-review-number: #372179;
+
+    --background-image-gradient-main: linear-gradient(135deg,
+            #1E293B 0%,
+            #0D1117 100%);
+}
+
+/* * {
+    border: 1px red solid;
+    margin: 1px;
+} */
