@@ -5,13 +5,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/sparkles.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script type="module" src="/src/main.js" defer></script> -->
+    <script type="module" src="/src/habilidades.js" defer></script>
+    <script type="module" src="/src/menu.js" defer></script>
     <link rel="stylesheet" href="/src/style.css">
     <title>Portfolio</title>
 </head>
 
 <body class="flex flex-col bg-background text-text-light overflow-x-hidden max-w-full">
-    <header class="flex items-center justify-between px-5 py-3 sm:py-5">
+    <header class="flex items-center justify-between overflow-visible px-5 py-3 sm:py-5">
         <!-- Logo -->
         <div class="sm:px-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -28,9 +29,9 @@
         <!-- Navigation -->
         <nav class="hidden sm:flex">
             <ul class="flex gap-3">
-                <li><button>About Me</button></li>
-                <li><button>Skills</button></li>
-                <li><button>Projects</button></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="proyectos.html">Projects</a></li>
             </ul>
         </nav>
 
@@ -50,7 +51,7 @@
         </button>
 
         <!-- Hamburger -->
-        <button class="sm:hidden" type="button" aria-label="Hamburger Menu">
+        <button class="sm:hidden hover:text-highlight active:scale-90 transition-all duration-200" type="button" aria-label="Hamburger Menu" id="hamburger">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-menu-icon lucide-menu">
@@ -59,6 +60,29 @@
                 <path d="M4 19h16" />
             </svg>
         </button>
+
+        <!-- Side-menu -->
+        <div class="hidden fixed right-0 top-0 z-500 h-screen w-[30%] bg-foreground shadow-2xl" id="menu">
+            <div class="flex justify-end p-5 pb-1">
+                <button type="button" class="text-highlight p-2 hover:scale-110 active:scale-90 transition-all duration-200"
+                id="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="px-8 py-2">
+                <ul class="flex flex-col gap-4 text-xl font-bold tracking-widest text-text-light ">
+                    <li><a href="/proyectos.html" class="hover:text-highlight transition-colors duration-200">Projects</a></li>
+                    <li><a href="#about" class="hover:text-highlight transition-colors duration-200">About Me</a></li>
+                    <li><a href="#skills" class="hover:text-highlight transition-colors duration-200">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-highlight transition-colors duration-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main class="flex flex-col">
         <!-- HERO -->
@@ -149,12 +173,14 @@
                 </div>
             </div>
             <button
-                class="absolute bottom-5 left-1/2 -translate-1/2 z-30 uppercase bg-highlight text-text-dark text-sm rounded-4xl px-6 py-1 border font-semibold ">My
+                class="absolute bottom-5 left-1/2 -translate-1/2 z-30 uppercase bg-highlight text-text-dark text-sm rounded-4xl px-6 py-1 border font-semibold
+                hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300">My
                 Projects</button>
         </section>
 
         <!-- WHO AM I -->
-        <section class="relative px-24 py-12 text-center overflow-hidden">
+        <section class="relative px-24 py-12 text-center overflow-hidden"
+        id="about">
             <!-- Background -->
             <img class="z-20 absolute w-10 sm:w-24 top-6 sm:top-10 left-12 lg:left-72 -rotate-12 rounded-md"
                 src="/me-church.webp" alt="Gabriel Mercês's picture" />
@@ -185,61 +211,36 @@
                     My goals changed overtime, but my passion to code never changed. I strive to learn new languages,
                     new frameworks, new concepts and improve as a developer.
                 </p>
-                <button class="bg-highlight text-text-dark px-4 py-2 rounded-full text-sm uppercase font-semibold">
+                <button class="bg-highlight text-text-dark px-4 py-2 rounded-full text-sm uppercase font-semibold
+                hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300">
                     Show My Projects
                 </button>
             </div>
         </section>
 
         <!-- MY SKILLS -->
-        <section class="p-12">
+        <section class="p-12"
+        id="skills">
             <h2 class="text-4xl uppercase text-highlight text-center pb-8 font-semibold">My Skills</h2>
-            <div class="grid grid-cols-4 md:grid-cols-6 gap-0.5">
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="html icon" src="/html.svg">
-                </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="css icon" src="/css.svg">
-                </div>
+            <div class="grid grid-cols-4 md:grid-cols-6 gap-0.5" id="skills-grid">
                 <div
                     class="flex flex-col gap-2 p-2 justify-center items-center col-start-3 md:col-start-5 col-end-5 md:col-end-7 row-start-1 row-end-3 bg-ghost-bg text-center mb-0.5 ml-0.5 rounded-md rounded-tr-lg">
                     <p class="font-bold text-md"><span class="text-3xl">+2</span><br>Years<br>Experience<br>Working</p>
                     <button
-                        class="bg-highlight rounded-2xl text-xs px-3 py-2 uppercase w-fit text-text-dark font-semibold">
+                        class="bg-highlight rounded-2xl text-xs px-3 py-2 uppercase w-fit text-text-dark font-semibold
+                        hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300">
                         Download My CV
                     </button>
                 </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="javascript icon" src="/javascript.svg">
-                </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="github icon" src="/github.svg">
-                </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="react icon" src="/react.svg">
-                </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="tailwind icon" src="/tailwind.svg">
-                </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="figma icon" src="/figma.svg">
-                </div>
-                <div class="px-4 py-8 rounded-lg bg-foreground flex items-center justify-center">
-                    <img class="w-12 sm:w-14 md:w-16 lg:w-20 h-auto" alt="linux icon" src="/linux.svg">
-                </div>
+                <!-- Skills are added here through javascript dynamically -->
             </div>
             <div class="flex flex-col items-center bg-foreground mt-12 rounded-lg p-4 md:p-12">
                 <h3 class="text-highlight uppercase text-center mb-3 md:text-2xl md:mb-12">
                     Additional Skills
                 </h3>
-                <div class="flex flex-wrap justify-center gap-5 [&>img]:w-[8%] [&>img]:min-w-10 [&>img]:h-auto">
-                    <img alt="firebase icon" src="/firebase.svg">
-                    <img alt="express icon" src="/express.svg">
-                    <img alt="nodeJS icon" src="/nodejs.svg">
-                    <img alt="python icon" src="/python.svg">
-                    <img alt="c# icon" src="/c-sharp.svg">
-                    <img alt="nextJS icon" src="/nextjs.svg">
-                    <img alt="android icon" src="/android.svg">
+                <div class="flex flex-wrap justify-center gap-5 [&>img]:w-[8%] [&>img]:min-w-10 [&>img]:h-auto"
+                    id="additional-skills">
+                    <!-- Skills are added here through javascript dynamically -->
                 </div>
             </div>
         </section>
@@ -275,24 +276,29 @@
                     </div>
                 </div>
             </div>
-            <button class="w-full rounded-full bg-highlight uppercase text-text-dark py-3 font-semibold text-sm md:absolute md:-bottom-2 md:w-fit md:px-24 md:left-1/2 md:-translate-13/14">Show My
+            <button
+                class="w-full rounded-full bg-highlight uppercase text-text-dark py-3 font-semibold text-sm md:absolute md:-bottom-2 md:w-fit md:px-24 md:left-1/2 md:-translate-13/14
+                hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300">Show
+                My
                 Projects</button>
         </section>
     </main>
-    <footer class="min-h-fit flex items-center justify-center p-1 pb-4">
+    <footer class="min-h-fit flex items-center justify-center p-1 pb-4"
+    id="contact">
         <div class="bg-white w-full max-w-md rounded-xl shadow-xl p-6 sm:p-8">
             <h2 class="text-center text-contact-text uppercase text-2xl font-bold tracking-wide mb-6">
                 Let's Have a Chat
             </h2>
-            <form class="space-y-2">
-                <input type="text" placeholder="YOUR NAME"
-                    class="w-full rounded-xl bg-contact-input placeholder-text-dark/50 placeholder-lg px-4 py-3 text-sm outline-none" />
-                <input type="email" placeholder="EMAIL ADDRESS"
-                    class="w-full rounded-xl bg-contact-input placeholder-text-dark/50 px-4 py-3 text-sm outline-none" />
-                <textarea placeholder="CHAT HERE" rows="4"
-                    class="w-full rounded-xl bg-contact-input placeholder-text-dark/50 px-4 py-3 text-sm resize-none outline-none"></textarea>
+            <form action="mailto:wohenre@gmail.com" method="GET" enctype="text/plain" class="space-y-2">
+                <input type="text" placeholder="YOUR NAME" required
+                    class="w-full rounded-xl bg-contact-input placeholder-text-dark/50 text-text-dark placeholder-lg px-4 py-3 text-sm outline-none" />
+                <input type="email" placeholder="EMAIL ADDRESS" required
+                    class="w-full rounded-xl bg-contact-input placeholder-text-dark/50 text-text-dark px-4 py-3 text-sm outline-none" />
+                <textarea placeholder="CHAT HERE" rows="4" required
+                    class="w-full rounded-xl bg-contact-input placeholder-text-dark/50 text-text-dark px-4 py-3 text-sm resize-none outline-none"></textarea>
                 <button type="submit"
-                    class="w-full rounded-full bg-highlight  text-text-dark py-3 font-semibold text-sm">
+                    class="w-full rounded-full bg-highlight  text-text-dark py-3 font-semibold text-sm
+                    hover:bg-highlight/90 hover:scale-105 active:scale-95 transition-all duration-300">
                     SUBMIT HERE
                 </button>
             </form>
